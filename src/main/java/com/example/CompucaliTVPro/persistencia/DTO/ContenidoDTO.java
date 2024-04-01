@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class ContenidoDTO {
     private int idContenido;
-    private Usuario usuario;
+    private Set<Usuario> usuarios = new HashSet<>();
     private String nombre;
     private TipoDeContenido tipoDeContenido;
     private EstadoDeVisualizacion estadoDeVisualizacion;
@@ -20,9 +20,9 @@ public class ContenidoDTO {
     public ContenidoDTO() {
     }
 
-    public ContenidoDTO(int idContenido, Usuario usuario, String nombre, TipoDeContenido tipoDeContenido, EstadoDeVisualizacion estadoDeVisualizacion, Plataforma plataforma, Set<Genero> generos, double calificacion, String comentario) {
+    public ContenidoDTO(int idContenido, Set<Usuario> usuarios, String nombre, TipoDeContenido tipoDeContenido, EstadoDeVisualizacion estadoDeVisualizacion, Plataforma plataforma, Set<Genero> generos, double calificacion, String comentario) {
         this.idContenido = idContenido;
-        this.usuario = usuario;
+        this.usuarios = usuarios;
         this.nombre = nombre;
         this.tipoDeContenido = tipoDeContenido;
         this.estadoDeVisualizacion = estadoDeVisualizacion;
@@ -40,12 +40,12 @@ public class ContenidoDTO {
         this.idContenido = idContenido;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Set<Usuario> getUsuarios() {
+        return usuarios;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarios(Set<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 
     public String getNombre() {
@@ -115,7 +115,7 @@ public class ContenidoDTO {
         contenidoDTO.setPlataforma(contenido.getPlataforma());
         contenidoDTO.setNombre(contenido.getNombre());
         contenidoDTO.setEstadoDeVisualizacion(contenido.getEstadoDeVisualizacion());
-        contenidoDTO.setUsuario(contenido.getUsuario());
+        contenidoDTO.setUsuarios(contenido.getUsuarios());
 
         return contenidoDTO;
     }
@@ -131,7 +131,7 @@ public class ContenidoDTO {
         contenidoDTO.setPlataforma(contenido.getPlataforma());
         contenidoDTO.setNombre(contenido.getNombre());
         contenidoDTO.setEstadoDeVisualizacion(contenido.getEstadoDeVisualizacion());
-        contenidoDTO.setUsuario(contenido.getUsuario());
+        contenidoDTO.setUsuarios(contenido.getUsuarios());
 
         return contenidoDTO;
     }

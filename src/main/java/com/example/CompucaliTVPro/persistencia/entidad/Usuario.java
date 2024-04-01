@@ -3,7 +3,9 @@ package com.example.CompucaliTVPro.persistencia.entidad;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Usuario {
@@ -18,8 +20,8 @@ public class Usuario {
     private String correo;
     private String contrasenia;
 
-    @OneToMany(mappedBy = "idContenido", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Contenido> contenidos = new ArrayList<>();
+    @ManyToMany(mappedBy = "usuarios", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Contenido> contenidos = new HashSet<>();
 
 
     public Usuario() {

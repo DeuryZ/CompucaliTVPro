@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface ContenidoServicio {
-    List<ContenidoDTO> obtenerTodosMisContenidos(int usuario);
+    List<Object> obtenerTodosMisContenidos(int usuario);
     ContenidoDTO obtenerContenidoPorId(int id);
     ContenidoDTO eliminarContenido(int id);
     ContenidoDTO actualizarContenido(int id, Contenido contenido);

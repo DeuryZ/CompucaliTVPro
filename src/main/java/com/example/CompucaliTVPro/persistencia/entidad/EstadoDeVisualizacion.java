@@ -11,6 +11,9 @@ public class EstadoDeVisualizacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEstadoDeVisualizacion;
 
+    private String estadoDeVisualizacion;
+
+
     @OneToMany(mappedBy = "estadoDeVisualizacion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Contenido> contenidosEstado = new ArrayList<>();
 

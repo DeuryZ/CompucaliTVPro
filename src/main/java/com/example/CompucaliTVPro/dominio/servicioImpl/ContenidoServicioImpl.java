@@ -20,13 +20,13 @@ public class ContenidoServicioImpl implements ContenidoServicio {
     }
 
     @Override
-    public List<ContenidoDTO> obtenerTodosMisContenidos(int usuarioId) {
-        List<Contenido> contenidos = contenidoRepositorio.obtenerTodosMisContenidos(usuarioId);
-        List<ContenidoDTO> contenidoDTOS = new ArrayList<>();
-        contenidos.forEach(
-                contenido -> contenidoDTOS.add(ContenidoDTO.toDTO(contenido))
-        );
-        return contenidoDTOS;
+    public List<Object> obtenerTodosMisContenidos(int usuarioId) {
+        List<Object> contenidos = contenidoRepositorio.obtenerTodosMisContenidos(usuarioId);
+//        List<ContenidoDTO> contenidoDTOS = new ArrayList<>();
+//        contenidos.forEach(
+//                contenido -> contenidoDTOS.add(ContenidoDTO.toDTO(contenido))
+//        );
+        return contenidos;
     }
 
     @Override

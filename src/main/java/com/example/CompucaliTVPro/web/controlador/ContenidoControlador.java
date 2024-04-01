@@ -23,7 +23,7 @@ public class ContenidoControlador {
     }
 
     @GetMapping("/miContenido/{usuarioId}")
-    ResponseEntity<List<ContenidoDTO>> obtenerTodosMisContenidos(@PathVariable int usuarioId){
+    ResponseEntity<List<Object>> obtenerTodosMisContenidos(@PathVariable int usuarioId){
         return ResponseEntity.ok(contenidoServicio.obtenerTodosMisContenidos(usuarioId));
     }
 

@@ -14,9 +14,11 @@ public class Contenido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idContenido;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "usuario_contenido",
+            joinColumns = @JoinColumn(name = "idContenido"),
+            inverseJoinColumns = @JoinColumn(name = "idUsuario"))
+    private Set<Usuario> usuarios = new HashSet<>();
 
     private String nombre;
 
@@ -39,6 +41,7 @@ public class Contenido {
             inverseJoinColumns = @JoinColumn(name = "idGenero"))
     private Set<Genero> generos = new HashSet<>();
 
+    @Column(name = "calificacion", nullable = true)
     private double calificacion;
     private String comentario;
 
@@ -46,9 +49,9 @@ public class Contenido {
     public Contenido() {
     }
 
-    public Contenido(int idContenido, Usuario usuario, String nombre, TipoDeContenido tipoDeContenido, EstadoDeVisualizacion estadoDeVisualizacion, Plataforma plataforma, Set<Genero> generos, double calificacion, String comentario) {
+    public Contenido(int idContenido, Set<Usuario> usuarios, String nombre, TipoDeContenido tipoDeContenido, EstadoDeVisualizacion estadoDeVisualizacion, Plataforma plataforma, Set<Genero> generos, double calificacion, String comentario) {
         this.idContenido = idContenido;
-        this.usuario = usuario;
+        this.usuarios = usuarios;
         this.nombre = nombre;
         this.tipoDeContenido = tipoDeContenido;
         this.estadoDeVisualizacion = estadoDeVisualizacion;
@@ -66,12 +69,12 @@ public class Contenido {
         this.idContenido = idContenido;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Set<Usuario> getUsuarios() {
+        return usuarios;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarios(Set<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 
     public String getNombre() {

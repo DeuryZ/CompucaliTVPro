@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ContenidoRepositorio extends JpaRepository<Contenido, Long> {
-    @Query("SELECT c FROM Contenido JOIN c.usuario u WHERE u.id_usuario = :usuario")
-    List<Contenido> obtenerTodosMisContenidos(@Param("usuario") int usuario);
+    @Query("SELECT c.idContenido FROM Contenido c JOIN c.usuarios u WHERE u.id_usuario = :usuario")
+    List<Object> obtenerTodosMisContenidos(@Param("usuario") int usuario);
 }
